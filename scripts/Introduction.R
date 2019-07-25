@@ -65,7 +65,7 @@ more_respondent_wall_type
 
 # Conditional subsetting
 
-no_members[c(TRUE, FALSE, TRUE, TRUE)]
+no_members[c(TRUE, FALSE, TRUE, TRUE)]           # Subsetting to get rid of what you don't want, TRUE - want to keep
 no_members[no_members > 5]
 no_members > 5
 
@@ -78,3 +78,20 @@ possessions[possessions == "car" | possessions == "bicycle"] # returns both car 
 possessions %in% c("car", "bicycle")
 
 possessions[possessions %in% c("car", "bicycle")]
+
+
+rooms <- c(2,1,1,NA,4)
+mean(rooms)
+max(rooms)
+min(rooms)
+
+mean(rooms, na.rm =  TRUE) # To remove (rm) NA
+
+is.na(rooms)
+
+!is.na(rooms)              # Swapped logical vector
+
+rooms[!is.na(rooms)]       # [] use square brackets, now have vector without NA
+
+
+
