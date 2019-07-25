@@ -30,6 +30,7 @@ length(no_members)
 class(no_members)
 str(no_members)
 
+# Data types
 respondent_wall_type <- c("muddaub", "burntbricks", "sunbricks")
 respondent_wall_type
 length(respondent_wall_type)
@@ -52,4 +53,14 @@ char_logical <- c("a","b","c", TRUE)
 tricky <- c(1,2,3, "4")
 
 combined_logical <- c(num_logical, char_logical)
+
+
+# Subsetting
+
+respondent_wall_type[2]
+respondent_wall_type[c(3, 2)]
+
+more_respondent_wall_type <- respondent_wall_type[c(1,2,3,2,1,3)]
+more_respondent_wall_type
+
 
