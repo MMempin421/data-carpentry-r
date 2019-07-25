@@ -69,3 +69,12 @@ no_members[c(TRUE, FALSE, TRUE, TRUE)]
 no_members[no_members > 5]
 no_members > 5
 
+no_members[no_members < 3 | no_members > 5]
+
+no_members[no_members >= 7 & no_members == 3]    # == is a logical (equal to)
+
+possessions[possessions == "car" | possessions == "bicycle"] # returns both car and bicycle
+
+possessions %in% c("car", "bicycle")
+
+possessions[possessions %in% c("car", "bicycle")]
