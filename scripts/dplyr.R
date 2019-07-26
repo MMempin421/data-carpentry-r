@@ -106,3 +106,29 @@ interviews %>%
 ?n                                                           # to get help
 
 
+interviews_spread <- interviews %>%
+  mutate(wall_type_logical = TRUE) %>%
+  spread(key = respondent_wall_type, 
+         value = wall_type_logical, fill = FALSE)           # key, what the new column should be; fill, fill all entries in the row that have no data to go in as false
+
+interviews_spread
+view(interviews_spread)                                     # can see last 4 columns of the different wall types
+
+
+interviews_gather <- interviews_spread %>%
+  gather(key = "respondent_wall_type", 
+         value = "wall_type_logical", 
+         burntbricks:sunbricks)                             # burntbricks:sunbricks - to chose which columns should be gathered together, saves you from typing them all out
+
+view(interviews_gather)                                     # taken 4 columns and stacked on top of each other, now need to clean it up
+
+
+interviews_gather <- interviews_spread %>%
+  gather(key = "respondent_wall_type", value = "wall_type_logical", burntbricks:sunbricks) %>%
+  filter(wall_type_logical) %>%
+  select(-wall_type_logical)
+
+view(interviews_gather)                                     # extra column at end gone and back to 131 rows, got rid of excess rows we introduced
+
+
+
