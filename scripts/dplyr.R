@@ -49,6 +49,60 @@ view(interviews_total_meals)
 interviews_total_meals
 
 
+interviews %>%
+  group_by(village) %>%                                         # to treat village as its own group
+  summarise(mean_no_membrs = mean(no_membrs))                   # create a variable (mean_no_membrs) and tell it how to compute that variable from some variable that exists
 
+
+interviews %>%
+  group_by(village, memb_assoc) %>%
+  summarise(mean_no_membrs = mean(no_membrs))                   # can remove missing data
+
+interviews %>%
+  filter(!is.na(memb_assoc)) %>%                                # to take out all missing data, ! flips all the false to true and true to false
+  group_by(village, memb_assoc) %>%
+  summarise(mean_no_membrs = mean(no_membrs))  
+
+
+interviews %>%
+  filter(!is.na(memb_assoc)) %>%                               
+  group_by(village, memb_assoc) %>%
+  summarise(mean_no_membrs = mean(no_membrs), 
+            min_membrs = min(no_membrs))                        # to create more than one summary, create new variable
+
+
+interviews %>%
+  filter(!is.na(memb_assoc)) %>%                               
+  group_by(village, memb_assoc) %>%
+  summarise(mean_no_membrs = mean(no_membrs), 
+            min_membrs = min(no_membrs)) %>%
+  arrange(min_membrs)                                          # to arrange from smalles to largest by min_membrs
+
+
+interviews %>%
+  filter(!is.na(memb_assoc)) %>%                               
+  group_by(village, memb_assoc) %>%
+  summarise(mean_no_membrs = mean(no_membrs), 
+            min_membrs = min(no_membrs)) %>%
+  arrange(desc(min_membrs))                                   # desc, descending order
+
+
+interviews %>%
+  count(village)
+
+interviews %>%
+  count(village, sort = TRUE)
+
+
+# Exercise
+
+interviews %>%
+  group_by(village) %>%
+  summarise(mean_no_membrs = mean(no_membrs), 
+            min_membrs = min(no_membrs), 
+            max_membrs = max(no_membrs), 
+            n = n())                                         # to include number of observations
+
+?n                                                           # to get help
 
 
