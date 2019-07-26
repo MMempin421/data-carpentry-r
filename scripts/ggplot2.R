@@ -97,5 +97,9 @@ ggplot(Interviews_plotting, aes(x = respondent_wall_type)) + geom_bar(aes(fill =
 ggplot(Interviews_plotting, aes(x = respondent_wall_type)) + geom_bar(aes(fill = village), position = "dodge")   # dodge put the plots side by side
 
 
+ggplot(Interviews_plotting, aes(x = respondent_wall_type)) + geom_bar(aes(fill = village), position = "dodge") + 
+  labs(x = "Wall type", y = "Count") +
+  facet_grid(~village)                                                                                          # facet allows you to split initial plot by variables                                                                                                                                 
+ 
 
 
