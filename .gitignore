@@ -27,4 +27,5 @@ rsconnect/
 # Don't track data files
 data/*.csv
 data/*.xlsx
+data/*.rds
 
