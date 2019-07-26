@@ -71,3 +71,42 @@ interviews[interviews_middle, ]
 interviews_head <- interviews[-(7:n_rows), ]            # discard all rows after first 6 rows (head)
 interviews_head
 
+
+floor_type <- factor(c("earth", "cement", "cement", "earth"))
+floor_type
+
+levels(floor_type)                                      # sorted alphabetically
+
+nlevels(floor_type)                                     # number of levels
+
+# Reordering
+floor_type <- factor(c("earth", "cement", "cement", "earth"), 
+                     levels = c("earth", "cement"))
+floor_type                                              # if want levels in specific order and not sorted by R
+
+levels(floor_type)
+levels(floor_type)[2]                                   # just look at second level
+levels(floor_type)[2] <- "brick"                        # don't want cement as second factor, want brick
+levels(floor_type)[2]
+levels(floor_type)
+floor_type
+
+as.character(floor_type)
+
+year_fct <- factor(c(1990, 1983, 1977, 1998, 1990))    # factors are numbers
+year_fct
+
+as.numeric(year_fct)                                   # try to convert to numbers for the four different years in data
+as.character(year_fct)                                 # character vector of year
+as.numeric(as.character(year_fct))
+
+levels(year_fct)[year_fct]                             # indirectly converted factor into character
+
+as.numeric(levels(year_fct))[year_fct] 
+
+year_nmb <- as.numeric(levels(year_fct))[year_fct] 
+table(year_nmb)
+table(year_fct)
+summary(year_fct)
+
+
