@@ -1,6 +1,6 @@
 library(tidyverse)
 
-interviews <- read_csv("data/SAFI_clean.csv", na = "NULL")
+interviews <- read_csv("data/SAFI_clean.csv", na = "NULL")    # replace Null in data with NA
 interviews                      # Tibble (data frames) shows only part of the data
 
 view(interviews)                # To look at actual data in R     
@@ -108,5 +108,30 @@ year_nmb <- as.numeric(levels(year_fct))[year_fct]
 table(year_nmb)
 table(year_fct)
 summary(year_fct)
+
+
+affect_conflicts <- interviews$affect_conflicts       # in dataset interview $ means to only look at affect_conflicts column
+affect_conflicts
+
+affect_conflicts <- as.factor(affect_conflicts)
+affect_conflicts                                      # tells you this data has 4 levels
+
+plot(affect_conflicts)
+
+affect_conflicts <- interviews$affect_conflicts       # replace missing values with something more useful
+affect_conflicts[is.na(affect_conflicts)]             # tells us which are na
+
+affect_conflicts <- interviews$affect_conflicts  
+affect_conflicts[is.na(affect_conflicts)] <- "undetermined"
+affect_conflicts <- as.factor(affect_conflicts)
+plot(affect_conflicts)
+
+# Exercise
+levels(affect_conflicts)                              # check levels
+levels(affect_conflicts)[2] <- "more than once"       # want to change level number 2
+affect_conflicts <- factor(affect_conflicts, levels = c("never", "once", "more than once", "frequently", "undetermined"))
+affect_conflicts
+plot(affect_conflicts)
+
 
 
