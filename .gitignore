@@ -24,4 +24,7 @@ vignettes/*.pdf
 *.knit.md
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
-data
+# Don't track data files
+data/*.csv
+data/*.xlsx
+
