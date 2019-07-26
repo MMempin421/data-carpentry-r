@@ -86,4 +86,16 @@ ggplot(data = Interviews_plotting, aes(x = respondent_wall_type, y = liv_count))
   geom_boxplot(alpha = 0) 
 
 
+# Barplots
+
+ggplot(Interviews_plotting, aes(x = respondent_wall_type)) + geom_bar()                                  # doesnt requrie y value to be specified in barplots
+
+
+ggplot(Interviews_plotting, aes(x = respondent_wall_type)) + geom_bar(aes(fill = village))               # stacked is the default
+
+
+ggplot(Interviews_plotting, aes(x = respondent_wall_type)) + geom_bar(aes(fill = village), position = "dodge")   # dodge put the plots side by side
+
+
+
 
