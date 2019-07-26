@@ -101,5 +101,10 @@ ggplot(Interviews_plotting, aes(x = respondent_wall_type)) + geom_bar(aes(fill =
   labs(x = "Wall type", y = "Count") +
   facet_grid(~village)                                                                                          # facet allows you to split initial plot by variables                                                                                                                                 
  
+p <- ggplot(Interviews_plotting, aes(x = respondent_wall_type)) + geom_bar(aes(fill = village), position = "dodge") + 
+  labs(x = "Wall type", y = "Count") +
+  facet_grid(~village)                                                                                         
 
+p
+p + theme (legend.position = "none")                     # can plot it without having to redo code and can alter using the assigned p factor
 
