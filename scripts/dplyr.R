@@ -40,8 +40,15 @@ view(interviews_ppl_room)
 
 
 # Exercise
-interviews_total_meals <- interviews %>%
+interviews_total_meals <- interviews %>%                         # need to consider your order
   mutate(total_meals = no_membrs * no_meals) %>%
   filter(total_meals > 20) %>%
   select(village, total_meals)
 view(interviews_total_meals)
+
+interviews_total_meals
+
+
+
+
+
