@@ -21,8 +21,27 @@ interviews %>%
 
 # Exercise
 interviews %>%
-  filter(memb_assoc == "yes") %>%                               # need to put filter first in this instance because if second it's not in the choices selected but usually best to put select first then filter
+  filter(memb_assoc == "yes") %>%                                # need to put filter first in this instance because if second it's not in the choices selected but usually best to put select first then filter
   select(affect_conflicts, liv_count, no_meals) 
   
 
+interviews %>%
+  mutate(people_per_room = no_membrs / rooms)
 
+interviews_ppl_room <- interviews %>%                            # assign output so can view it properly
+  mutate(people_per_room = no_membrs / rooms)
+
+view(interviews_ppl_room)
+
+interviews_ppl_room <- interviews %>% 
+  filter(memb_assoc == "yes") %>%
+  mutate(people_per_room = no_membrs / rooms)
+view(interviews_ppl_room)
+
+
+# Exercise
+interviews_total_meals <- interviews %>%
+  mutate(total_meals = no_membrs * no_meals) %>%
+  filter(total_meals > 20) %>%
+  select(village, total_meals)
+view(interviews_total_meals)
